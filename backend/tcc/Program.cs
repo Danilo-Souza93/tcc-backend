@@ -1,8 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using tcc.Context;
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connectionStringMySql = builder.Configuration.GetConnectionString("ConectionMySql");
+builder.Services.AddDbContext<APIDbContext>(option => option.UseMySql(
+    connectionStringMySql,
+    ServerVersion.Parse("8.0.34")
+    )
+);
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,

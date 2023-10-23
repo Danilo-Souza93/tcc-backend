@@ -1,9 +1,11 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 
 namespace tcc.Models
 {
     public class VendaModel
     {
+        [Key]
         public int Id   { get; set; }
         public string Status { get; set; }
         public float ValorTotal { get; set; }

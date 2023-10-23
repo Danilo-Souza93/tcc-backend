@@ -1,7 +1,10 @@
-﻿namespace tcc.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace tcc.Models
 {
     public class ProdutoModel
     {
+        [Key]
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Detalhe { get; set; }
