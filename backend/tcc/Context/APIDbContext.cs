@@ -5,12 +5,17 @@ namespace tcc.Context
 {
     public class APIDbContext :  DbContext
     {
-        public APIDbContext(DbContextOptions<APIDbContext> options) : base(options) 
-        { 
-            
+        public DbSet<VendaModel> Vendas { get; set; }
+        public DbSet<ProdutoModel> Produtos { get; set; }
+        public APIDbContext(DbContextOptions<APIDbContext> options) : base(options)
+        {
+
         }
 
-        public DbSet<VendaModel> vendas { get; set; }
-        public DbSet<ProdutoModel> produtos { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new VendaModelMapping());
+            modelBuilder.ApplyConfiguration(new ProdutoModelMapping());
+        }
     }
 }

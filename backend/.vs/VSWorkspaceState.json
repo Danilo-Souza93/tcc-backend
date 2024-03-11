@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\tcc",
-    "\\tcc\\Models"
+    "\\tcc\\Context",
+    "\\tcc\\Models",
+    "\\tcc\\Properties",
+    "\\tcc\\Repositorys",
+    "\\tcc\\Repositorys\\LoginRepository"
   ],
   "SelectedNode": "\\tcc\\Models\\ProdutoModel.cs",
   "PreviewInSolutionExplorer": false

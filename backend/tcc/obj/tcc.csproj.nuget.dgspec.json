@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj": {}
+    "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj": {
+    "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
+        "projectUniqueName": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj",
         "projectName": "tcc",
-        "projectPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
-        "packagesPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\obj\\",
+        "projectPath": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj",
+        "packagesPath": "C:\\Users\\Danilo\\.nuget\\packages\\",
+        "outputPath": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Danilo.DESKTOP-GNECRD5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Danilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.12, )"
@@ -56,6 +64,10 @@
               "target": "Package",
               "version": "[7.0.12, )"
             },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -63,6 +75,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Diagnostics.DiagnosticSource": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -84,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
