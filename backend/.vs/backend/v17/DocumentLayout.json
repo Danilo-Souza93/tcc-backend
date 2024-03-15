@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\services\\produtoservice\\produtoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\services\\produtoservice\\produtoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\services\\produtoservice\\iprodutoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\services\\produtoservice\\iprodutoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\services\\iservicewrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\services\\iservicewrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\repositorys\\produtorepository\\produtorepositoy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\repositorys\\produtorepository\\produtorepositoy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\repositorys\\produtorepository\\iprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\repositorys\\produtorepository\\iprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\repositorys\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\repositorys\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|c:\\users\\danilo.desktop-gnecrd5\\source\\repos\\tcc-backend\\backend\\tcc\\entitymodels\\vendaentitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{175F9859-F6D4-42D3-94B5-715AAEF74BEA}|tcc\\tcc.csproj|solutionrelative:tcc\\entitymodels\\vendaentitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IProdutoService.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Services\\ProdutoService\\IProdutoService.cs",
+              "RelativeDocumentMoniker": "tcc\\Services\\ProdutoService\\IProdutoService.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Services\\ProdutoService\\IProdutoService.cs",
+              "RelativeToolTip": "tcc\\Services\\ProdutoService\\IProdutoService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T18:44:43.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IServiceWrapper.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Services\\IServiceWrapper.cs",
+              "RelativeDocumentMoniker": "tcc\\Services\\IServiceWrapper.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Services\\IServiceWrapper.cs",
+              "RelativeToolTip": "tcc\\Services\\IServiceWrapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T18:40:02.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProdutoService.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Services\\ProdutoService\\ProdutoService.cs",
+              "RelativeDocumentMoniker": "tcc\\Services\\ProdutoService\\ProdutoService.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Services\\ProdutoService\\ProdutoService.cs",
+              "RelativeToolTip": "tcc\\Services\\ProdutoService\\ProdutoService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAQwBAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T18:32:01.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IRepositoryBase.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Repositorys\\IRepositoryBase.cs",
+              "RelativeDocumentMoniker": "tcc\\Repositorys\\IRepositoryBase.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Repositorys\\IRepositoryBase.cs",
+              "RelativeToolTip": "tcc\\Repositorys\\IRepositoryBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T18:24:48.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IProdutoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Repositorys\\ProdutoRepository\\IProdutoRepository.cs",
+              "RelativeDocumentMoniker": "tcc\\Repositorys\\ProdutoRepository\\IProdutoRepository.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Repositorys\\ProdutoRepository\\IProdutoRepository.cs",
+              "RelativeToolTip": "tcc\\Repositorys\\ProdutoRepository\\IProdutoRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T18:14:30.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProdutoRepositoy.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Repositorys\\ProdutoRepository\\ProdutoRepositoy.cs",
+              "RelativeDocumentMoniker": "tcc\\Repositorys\\ProdutoRepository\\ProdutoRepositoy.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\Repositorys\\ProdutoRepository\\ProdutoRepositoy.cs",
+              "RelativeToolTip": "tcc\\Repositorys\\ProdutoRepository\\ProdutoRepositoy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T17:55:54.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VendaEntityModel.cs",
+              "DocumentMoniker": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\EntityModels\\VendaEntityModel.cs",
+              "RelativeDocumentMoniker": "tcc\\EntityModels\\VendaEntityModel.cs",
+              "ToolTip": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\EntityModels\\VendaEntityModel.cs",
+              "RelativeToolTip": "tcc\\EntityModels\\VendaEntityModel.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAQwBIAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T16:57:55.942Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

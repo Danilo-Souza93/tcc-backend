@@ -1,4 +1,6 @@
-﻿namespace tcc.Services
+﻿using tcc.Repositorys;
+
+namespace tcc.Services
 {
     public class ServiceBase
     {

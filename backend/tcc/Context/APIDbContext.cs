@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using tcc.Context.Mapping;
 using tcc.Models;
 
 namespace tcc.Context

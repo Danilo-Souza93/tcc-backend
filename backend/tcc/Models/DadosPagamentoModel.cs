@@ -23,8 +23,8 @@ namespace tcc.Models
     public class Cartao
     {
         public int Id { get; set; }
-        public int NumeroCartao { get; set; }
-        public int CodigoSeguranca { get; set; }
+        public string NumeroCartao { get; set; }
+        public string CodigoSeguranca { get; set; }
         public string DtValidade { get; set; }
         public string NomeCartao { get; set; }
         public string Bandeira { get; set; }
@@ -32,8 +32,8 @@ namespace tcc.Models
         public Cartao() 
         {
             Id = 0;
-            NumeroCartao = 0;
-            CodigoSeguranca = 0;
+            NumeroCartao = string.Empty;
+            CodigoSeguranca = string.Empty;
             DtValidade = string.Empty;
             NomeCartao = string.Empty;
             Bandeira = string.Empty;

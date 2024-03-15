@@ -1,6 +1,8 @@
-﻿namespace tcc.Repositorys.ProdutoRepository
+﻿using tcc.EntityModels;
+
+namespace tcc.Repositorys.ProdutoRepository
 {
-    public interface IProdutoRepository
+    public interface IProdutoRepository : IRepositoryBase<ProdutoEntityModel>
     {
     }
 }

@@ -16,7 +16,7 @@ namespace tcc.Repositorys
 
         public IProdutoRepository ProdutoRepository => _produtoRepository.Value;
 
-        void Save()
+        public void Save()
         {
             _dbcontext.SaveChanges();
         }

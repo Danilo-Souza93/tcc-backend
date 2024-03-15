@@ -1,4 +1,4 @@
-﻿namespace tcc.Services.ProdutoService.ProdutoService
+﻿namespace tcc.Services.ProdutoService
 {
     public interface IProdutoService
     {

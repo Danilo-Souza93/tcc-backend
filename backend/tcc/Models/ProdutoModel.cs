@@ -10,6 +10,7 @@ namespace tcc.Models
         public string Detalhe { get; set; }
         public int QuantidadeEstoque { get; set; }
         public float Valor  { get; set; }
+        public string dt_lote { get; set; }
 
         public ProdutoModel() 
         { 
@@ -18,6 +19,7 @@ namespace tcc.Models
             Detalhe = string.Empty;
             QuantidadeEstoque = 0;
             Valor = 0;
+            dt_lote = string.Empty;
         }
     }
    
