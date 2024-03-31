@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using tcc.Context;
 
@@ -5,13 +6,7 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionStringMySql = builder.Configuration.GetConnectionString("ConectionMySql");
-builder.Services.AddDbContext<APIDbContext>(option => option.UseMySql(
-    connectionStringMySql,
-    ServerVersion.Parse("8.0.34")
-    )
-);
+IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
 builder.Services.AddCors(options =>
 {
@@ -25,6 +20,17 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<APIDbContext>(options =>
+{
+    options.UseNpgsql(configuration.GetConnectionString("Defaut"));
+});
+
+//var mapperConfig = new AutoMapper.MapperConfiguration(new MapperConfig());
+
+//IMapper mapper = mapperConfig.CreateMapper();
+
+//builder.Services.AddSingleton(mapper);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -43,9 +49,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(MyAllowSpecificOrigins);
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

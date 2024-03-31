@@ -1,34 +1,50 @@
-﻿namespace tcc.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace tcc.Models
 {
     public class DadosPagamentoModel
     {
+        public int DadosPagamentoId { get; set; }
         public Cartao Debito { get; set; }
-        public List<Cartao> Credito { get; set; }
-        public Pix Pix { get; set; }
+        public Cartao Credito { get; set; }
+        //public Pix Pix { get; set; }
         //public Boleto Boleto { get; set; } 
 
         public DadosPagamentoModel() 
-        { 
+        {
+            DadosPagamentoId = 0;
             Debito = new Cartao();
-            Credito = new List<Cartao>();
-            Pix = new Pix();
+            Credito = new Cartao();
+            //Pix = new Pix();
             //Boleto = new Boleto();
         }
     }
 
     public class Cartao
     {
-        public int NumeroCartao { get; set; }
-        public int CodigoSeguranca { get; set; }
+        public int Id { get; set; }
+        public string NumeroCartao { get; set; }
+        public string CodigoSeguranca { get; set; }
         public string DtValidade { get; set; }
         public string NomeCartao { get; set; }
         public string Bandeira { get; set; }
+
+        public Cartao() 
+        {
+            Id = 0;
+            NumeroCartao = string.Empty;
+            CodigoSeguranca = string.Empty;
+            DtValidade = string.Empty;
+            NomeCartao = string.Empty;
+            Bandeira = string.Empty;
+        }
     }
 
-    public class Pix
-    {
-        public int Cnpj { get; }
-    }
+    //public class Pix
+    //{
+    //    [Key]
+    //    public int Cnpj { get; }
+    //}
 
     //public class Boleto
     //{
