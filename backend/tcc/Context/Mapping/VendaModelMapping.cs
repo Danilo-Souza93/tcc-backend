@@ -24,40 +24,47 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
                .HasColumnName("valor_total")
                .IsRequired();
 
+        // Configura a relação com ProdutoModel
+        builder.HasMany(v => v.Produto)
+            .WithOne()
+            .HasForeignKey(v => v.Id)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade); // Especifica o comportamento de exclusão em cascata  
+
+
         // Configura a relação com EnderecoModel
-        builder.HasOne(v => v.Endereco)
-               .WithMany()
-               .HasForeignKey(v => v.EnderecoId)
-               .IsRequired()
-               .OnDelete(DeleteBehavior.Cascade); // Especifica o comportamento de exclusão em cascata
+        builder.OwnsOne(v => v.Endereco, endereco =>
+        {
+            endereco.Property(e => e.EnderecoId)
+                .IsRequired()
+                .HasColumnName("endereco_id");
 
-        // Configura a relação com Produtos (relacionamento muitos para muitos)
-        builder.HasMany(v => v.Produtos)
-               .WithMany()
-               .UsingEntity<Dictionary<string, object>>(
-                    "venda_produto",
-                    j => j.HasOne<ProdutoModel>()
-                        .WithMany()
-                        .HasForeignKey("ProdutoId"),
+            endereco.Property(e => e.Cep)
+                .IsRequired()
+                .HasColumnName("endereco_cep");
 
-                    j => j.HasOne<VendaEntityModel>()
-                        .WithMany()
-                        .HasForeignKey("VendaId")
-                );
-                                  
+            endereco.Property(e => e.Numero)
+                .IsRequired()
+                .HasColumnName("endereco_num");
+        });
+
 
         // Configura a relação com DadosPessoaisModel
-        builder.HasOne(v => v.DadosPessoais)
-               .WithMany()
-               .HasForeignKey(v => v.DadosPessoaisId)
-               .IsRequired()
-               .OnDelete(DeleteBehavior.Cascade); // Especifica o comportamento de exclusão em cascata
+        builder.OwnsOne(v => v.DadosPessoais, dadosPessoais =>
+        {
+            dadosPessoais.Property(e => e.Cpf)
+                .HasMaxLength(11)
+                .IsRequired()
+                .HasColumnName("cpf");
+        });
 
         // Configura a relação com DadosPagamentoModel
-        builder.HasOne(v => v.DadosPagamento)
-               .WithMany()
-               .HasForeignKey(v => v.DadosPagamentoId)
-               .IsRequired()
-               .OnDelete(DeleteBehavior.Cascade); // Especifica o comportamento de exclusão em cascata
+        builder.OwnsOne(v => v.DadosPagamento, dadosPagamento =>
+        {
+            dadosPagamento.Property(e => e.DadosPagamentoId)
+                .IsRequired()
+                .HasColumnName("pagamentoId");
+        });
+               
     }
 }

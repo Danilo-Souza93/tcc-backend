@@ -4,17 +4,17 @@ namespace tcc.Models
 {
     public class DadosPagamentoModel
     {
-        public int Id { get; set; }
+        public int DadosPagamentoId { get; set; }
         public Cartao Debito { get; set; }
-        public List<Cartao> Credito { get; set; }
+        public Cartao Credito { get; set; }
         //public Pix Pix { get; set; }
         //public Boleto Boleto { get; set; } 
 
         public DadosPagamentoModel() 
-        { 
-            Id = 0;
+        {
+            DadosPagamentoId = 0;
             Debito = new Cartao();
-            Credito = new List<Cartao>();
+            Credito = new Cartao();
             //Pix = new Pix();
             //Boleto = new Boleto();
         }

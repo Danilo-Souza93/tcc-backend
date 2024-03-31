@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace tcc.EntityModels
 {
-    [Table("products")]
+    [Table("produtos")]
     public class ProdutoEntityModel: EntityBase
     {
         [Required]
-        [Column("product_id")]
+        [Column("produto_id")]
         public int Id { get; set; }
 
         [Required]
-        [Column("product_name")]
+        [Column("produto_name")]
         [
             MaxLength(100, ErrorMessage = "O produto pode ter no maximo 100 caracteres"), 
             MinLength(3, ErrorMessage = "O produto precisa ter pelo menos 3 caracteres")

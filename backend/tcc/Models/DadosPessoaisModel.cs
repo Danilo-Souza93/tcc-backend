@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Npgsql.Internal.TypeHandlers;
 using System.ComponentModel.DataAnnotations;
 
 namespace tcc.Models

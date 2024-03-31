@@ -22,27 +22,19 @@ namespace tcc.EntityModels
         public float ValorTotal { get; set; }
 
         [Required]
-        [ForeignKey("endereco_id")]
-        [Range(1, int.MaxValue, ErrorMessage = "É necessário somente um endereço para entrega")]
-        public int? EnderecoId { get; set; }
-        public EnderecoModel Endereco { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Deve conter pelo menos um produto")]
+        public virtual List<ProdutoModel> Produto { get; set; } // Propriedade de tipo complexo
 
         [Required]
-        [ForeignKey("produtos_id")]
-        [Range(0, int.MaxValue, ErrorMessage = "É necessário um ou mais produtos")]
-        public int? ProdutosId { get; set; }
-        public List<ProdutoModel> Produtos { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Deve conter um unico endereço")]
+        public virtual EnderecoModel Endereco { get; set; } 
 
         [Required]
-        [ForeignKey("dados_pessoais_id")]
-        [Range(0, int.MaxValue, ErrorMessage ="É necessario informar os dados pessoais")]
-        public int? DadosPessoaisId { get; set; }
-        public DadosPessoaisModel DadosPessoais { get; set; }
+        [Range(0.01, int.MaxValue, ErrorMessage = "Deve conter pelo menos um dado para contato")]
+        public virtual DadosPessoaisModel DadosPessoais { get; set; }
 
         [Required]
-        [ForeignKey("dados_pagamento_id")]
-        [Range(0, int.MaxValue, ErrorMessage ="É necessário uma forma de pagamento")]
-        public int? DadosPagamentoId { get; set; }
-        public DadosPagamentoModel DadosPagamento { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Deve conter uma forma de pagamento")]
+        public virtual DadosPagamentoModel DadosPagamento { get; set; }
     }
 }
