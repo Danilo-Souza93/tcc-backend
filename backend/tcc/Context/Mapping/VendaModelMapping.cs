@@ -25,12 +25,16 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
                .IsRequired();
 
         // Configura a relação com ProdutoModel
-        builder.HasMany(v => v.Produto)
-            .WithOne()
-            .HasForeignKey(v => v.Id)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade); // Especifica o comportamento de exclusão em cascata  
+        builder.OwnsMany(v => v.Produto, produto =>
+        {
+            produto.Property(e => e.Id)
+             .IsRequired()
+             .HasColumnName("product_id");
 
+            produto.Property(e => e.dt_lote)
+                .IsRequired()
+                .HasColumnName("product_lote");
+        });
 
         // Configura a relação com EnderecoModel
         builder.OwnsOne(v => v.Endereco, endereco =>
@@ -63,8 +67,38 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         {
             dadosPagamento.Property(e => e.DadosPagamentoId)
                 .IsRequired()
-                .HasColumnName("pagamentoId");
+                .HasColumnName("pagamento_id");
+
+            dadosPagamento.OwnsOne(j => j.Debito, debito =>
+            {
+                debito.Property(i => i.Id)
+                    .IsRequired()
+                    .HasColumnName("debt_card_id");
+
+                debito.Property(i => i.NumeroCartao)
+                    .IsRequired()
+                    .HasColumnName("debt_card_name");
+
+                debito.Property(i => i.DtValidade)
+                    .IsRequired()
+                    .HasColumnName("debt_card_validity");
+            });
+
+            dadosPagamento.OwnsOne(j => j.Credito, credito =>
+            {
+                credito.Property(i => i.Id)
+                    .IsRequired()
+                    .HasColumnName("cred_card_id");
+
+                credito.Property(i => i.NumeroCartao)
+                    .IsRequired()
+                    .HasColumnName("credt_card_name");
+
+                credito.Property(i => i.DtValidade)
+                    .IsRequired()
+                    .HasColumnName("credt_card_validity");
+            });
         });
-               
+
     }
 }
