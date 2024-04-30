@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj": {}
+    "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj": {
+    "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
+        "projectUniqueName": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj",
         "projectName": "tcc",
-        "projectPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
-        "packagesPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Danilo.DESKTOP-GNECRD5\\source\\repos\\tcc-backend\\backend\\tcc\\obj\\",
+        "projectPath": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj",
+        "packagesPath": "C:\\Users\\Danilo\\.nuget\\packages\\",
+        "outputPath": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Danilo.DESKTOP-GNECRD5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Danilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -109,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

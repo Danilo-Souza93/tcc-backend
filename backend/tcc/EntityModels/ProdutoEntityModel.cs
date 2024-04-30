@@ -8,7 +8,7 @@ namespace tcc.EntityModels
     {
         [Required]
         [Column("produto_id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [Column("produto_name")]
