@@ -23,7 +23,7 @@ namespace tcc.EntityModels
 
         [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Deve conter pelo menos um produto")]
-        public virtual List<ProdutoModel> Produto { get; set; } // Propriedade de tipo complexo
+        public virtual List<ProdutoEntityModel> Produto { get; set; } // Propriedade de tipo complexo
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Deve conter um unico endereço")]

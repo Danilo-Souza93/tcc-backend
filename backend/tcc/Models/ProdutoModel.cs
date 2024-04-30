@@ -5,7 +5,7 @@ namespace tcc.Models
 {
     public class ProdutoModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Detalhe { get; set; }
         public int QuantidadeEstoque { get; set; }
@@ -14,7 +14,7 @@ namespace tcc.Models
 
         public ProdutoModel() 
         { 
-            Id = Guid.Empty;
+            Id = 0;
             Nome = string.Empty;
             Detalhe = string.Empty;
             QuantidadeEstoque = 0;

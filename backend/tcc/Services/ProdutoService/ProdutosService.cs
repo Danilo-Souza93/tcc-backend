@@ -21,7 +21,7 @@ namespace tcc.Services.ProdutoService
 
             foreach (var produto in produtos)
             {
-                produto.Id = new Guid();
+                //produto.Id = new Guid();
                 _repository.ProdutoRepository.Create(produto);
                 _repository.Save()
 ;            }

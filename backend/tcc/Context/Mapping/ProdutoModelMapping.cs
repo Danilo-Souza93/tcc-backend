@@ -12,7 +12,10 @@ namespace tcc.Context.Mapping
             builder.ToTable("produtos");
 
             builder.HasKey(x => x.Id);
-            
+
+            builder.Property(x => x.Uuid).HasDefaultValueSql("gen_random_uuid()");
+
+
             builder.Property(x => x.Nome).
                 HasColumnName("nome")
                 .IsRequired();

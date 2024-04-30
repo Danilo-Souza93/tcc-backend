@@ -25,16 +25,16 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
                .IsRequired();
 
         // Configura a relação com ProdutoModel
-        builder.OwnsMany(v => v.Produto, produto =>
-        {
-            produto.Property(e => e.Id)
-             .IsRequired()
-             .HasColumnName("product_id");
+        //builder.OwnsMany(v => v.Produto, produto =>
+        //{
+        //    produto.Property(e => e.Id)
+        //     .IsRequired()
+        //     .HasColumnName("product_id");
 
-            produto.Property(e => e.dt_lote)
-                .IsRequired()
-                .HasColumnName("product_lote");
-        });
+        //    produto.Property(e => e.dt_lote)
+        //        .IsRequired()
+        //        .HasColumnName("product_lote");
+        //});
 
         // Configura a relação com EnderecoModel
         builder.OwnsOne(v => v.Endereco, endereco =>
