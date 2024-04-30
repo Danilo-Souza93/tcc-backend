@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2aB/7tltUCxoXR+r4FrDeOR2fHIoL/RVygWNVoGpenoaaPZNNsBw3YQbKdIRnLoZK/vGV+qT3naN+PAPWjck5w==",
+  "dgSpecHash": "b1pZAlW900/+4HrTaMk5I3iDzU4VMyTMRChi+iMzGuTaljdUPuJovmql591i4D1VdcCGRmk9jqktQjfP8fMiIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Estevam\\Source\\Repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
+  "projectFilePath": "C:\\Users\\Estevam\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Estevam\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Estevam\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

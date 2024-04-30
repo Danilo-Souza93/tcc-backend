@@ -40,16 +40,13 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         builder.OwnsOne(v => v.Endereco, endereco =>
         {
             endereco.Property(e => e.EnderecoId)
-                .IsRequired()
-                .HasColumnName("endereco_id");
+                .IsRequired();
 
             endereco.Property(e => e.Cep)
-                .IsRequired()
-                .HasColumnName("endereco_cep");
+                .IsRequired();
 
             endereco.Property(e => e.Numero)
-                .IsRequired()
-                .HasColumnName("endereco_num");
+                .IsRequired();
         });
 
 
@@ -58,8 +55,7 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         {
             dadosPessoais.Property(e => e.Cpf)
                 .HasMaxLength(11)
-                .IsRequired()
-                .HasColumnName("cpf");
+                .IsRequired();
         });
 
         // Configura a relação com DadosPagamentoModel
@@ -69,35 +65,47 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
                 .IsRequired()
                 .HasColumnName("pagamento_id");
 
-            dadosPagamento.OwnsOne(j => j.Debito, debito =>
+            dadosPagamento.OwnsOne(j => j.Cartao, cartao =>
             {
-                debito.Property(i => i.Id)
-                    .IsRequired()
-                    .HasColumnName("debt_card_id");
+                cartao.Property(i => i.Id)
+                    .IsRequired();
 
-                debito.Property(i => i.NumeroCartao)
-                    .IsRequired()
-                    .HasColumnName("debt_card_name");
+                cartao.Property(i => i.NumeroCartao)
+                    .IsRequired();
 
-                debito.Property(i => i.DtValidade)
-                    .IsRequired()
-                    .HasColumnName("debt_card_validity");
+                cartao.Property(i => i.DtValidade)
+                    .IsRequired();
             });
 
-            dadosPagamento.OwnsOne(j => j.Credito, credito =>
-            {
-                credito.Property(i => i.Id)
-                    .IsRequired()
-                    .HasColumnName("cred_card_id");
+            //dadosPagamento.OwnsOne(j => j.Debito, debito =>
+            //{
+            //    debito.Property(i => i.Id)
+            //        .IsRequired()
+            //        .HasColumnName("debt_card_id");
 
-                credito.Property(i => i.NumeroCartao)
-                    .IsRequired()
-                    .HasColumnName("credt_card_name");
+            //    debito.Property(i => i.NumeroCartao)
+            //        .IsRequired()
+            //        .HasColumnName("debt_card_name");
 
-                credito.Property(i => i.DtValidade)
-                    .IsRequired()
-                    .HasColumnName("credt_card_validity");
-            });
+            //    debito.Property(i => i.DtValidade)
+            //        .IsRequired()
+            //        .HasColumnName("debt_card_validity");
+            //});
+
+            //dadosPagamento.OwnsOne(j => j.Credito, credito =>
+            //{
+            //    credito.Property(i => i.Id)
+            //        .IsRequired()
+            //        .HasColumnName("cred_card_id");
+
+            //    credito.Property(i => i.NumeroCartao)
+            //        .IsRequired()
+            //        .HasColumnName("credt_card_name");
+
+            //    credito.Property(i => i.DtValidade)
+            //        .IsRequired()
+            //        .HasColumnName("credt_card_validity");
+            //});
         });
 
     }
