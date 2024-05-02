@@ -37,5 +37,7 @@ namespace tcc.EntityModels
         [Required]
         [Column("dt_lote")]
         public string dt_lote { get; set; }
+
+        public List<VendaProdutosEntityModel> ProdutoVendas { get; set; }
     }
 }

@@ -27,10 +27,10 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
                .IsRequired();
         
         // Configura a relação 1:1
-        builder.HasOne(v => v.VendaProduto)
-            .WithOne()
-            .HasForeignKey<VendaProdutosEntityModel>(e => e.VendaProdutosId)
-            .IsRequired();
+        //builder.HasMany(v => v.VendaProdutos)
+        //    .WithOne()
+        //    .HasForeignKey<VendaProdutosEntityModel>(e => e.VendaProdutosId)
+        //    .IsRequired();
 
         // Configura a relação com EnderecoModel
         builder.OwnsOne(v => v.Endereco, endereco =>

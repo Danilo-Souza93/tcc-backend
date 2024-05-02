@@ -23,7 +23,7 @@ namespace tcc.EntityModels
 
         [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Deve conter pelo menos um produto")]
-        public VendaProdutosEntityModel VendaProduto { get; set; } 
+        public List<VendaProdutosEntityModel> VendaProdutos { get; set; } 
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Deve conter um unico endereço")]
