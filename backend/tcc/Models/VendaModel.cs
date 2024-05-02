@@ -5,21 +5,21 @@ namespace tcc.Models
 {
     public class VendaModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Status { get; set; }
         public float ValorTotal { get; set; }
         public EnderecoModel Endereco { get; set; }
-        public List<ProdutoModel> Produtos { get; set; }
+        public Guid VendaProdutosId { get; set; }
         public DadosPessoaisModel DadosPessoais { get; set; }
         public DadosPagamentoModel DadosPagamento { get; set; }
 
         public VendaModel() 
         {
-            Id = 0;
+            Id = new Guid();
             Status = string.Empty;
             ValorTotal = 0;
             Endereco = new EnderecoModel();
-            Produtos = new List<ProdutoModel>();
+            VendaProdutosId = new Guid();
             DadosPessoais = new DadosPessoaisModel();
             DadosPagamento = new DadosPagamentoModel();
         }

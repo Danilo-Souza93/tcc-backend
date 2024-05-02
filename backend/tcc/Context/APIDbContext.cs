@@ -9,6 +9,7 @@ namespace tcc.Context
     {
         public DbSet<VendaEntityModel> Vendas { get; set; }
         public DbSet<ProdutoEntityModel> Produtos { get; set; }
+        public DbSet<VendaProdutosEntityModel> VendaProdutos { get; set; }
         public APIDbContext(DbContextOptions<APIDbContext> options) : base(options)
         {
 
@@ -18,6 +19,7 @@ namespace tcc.Context
         {
             modelBuilder.ApplyConfiguration(new VendaModelMapping());
             modelBuilder.ApplyConfiguration(new ProdutoModelMapping());
+            modelBuilder.ApplyConfiguration(new VendaProdutoIMapping());
         }
     }
 }

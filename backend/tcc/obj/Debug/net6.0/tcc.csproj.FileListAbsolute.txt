@@ -226,3 +226,4 @@ C:\Users\Estevam\Source\Repos\tcc-backend\backend\tcc\obj\Debug\net6.0\refint\tc
 C:\Users\Estevam\Source\Repos\tcc-backend\backend\tcc\obj\Debug\net6.0\tcc.pdb
 C:\Users\Estevam\Source\Repos\tcc-backend\backend\tcc\obj\Debug\net6.0\tcc.genruntimeconfig.cache
 C:\Users\Estevam\Source\Repos\tcc-backend\backend\tcc\obj\Debug\net6.0\ref\tcc.dll
+C:\WorkTSF\tcc-backend\backend\tcc\bin\Debug\net6.0\Newtonsoft.Json.dll

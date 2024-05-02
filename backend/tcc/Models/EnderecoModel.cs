@@ -5,8 +5,6 @@ namespace tcc.Models
 {
     public class EnderecoModel
     {
-        [Column("endereco_id")]
-        public int EnderecoId { get; set; }
         [Column("endereco_rua")]
         public string Rua { get; set; }
         [Column("endereco_numero")]
@@ -18,17 +16,16 @@ namespace tcc.Models
         [Column("endereco_estado")]
         public string Estado { get; set; }
         [Column("endereco_cep")]
-        public int Cep { get; set; }
+        public string Cep { get; set; }
 
         public EnderecoModel() 
         {
-            EnderecoId = 0;
             Rua = string.Empty;
             Numero = 0;
             Bairro = string.Empty;
             Cidade = string.Empty;
             Estado = string.Empty;
-            Cep = 0;
+            Cep = string.Empty;
         }
     }
 }
