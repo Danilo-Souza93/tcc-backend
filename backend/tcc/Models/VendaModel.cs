@@ -9,7 +9,7 @@ namespace tcc.Models
         public string Status { get; set; }
         public float ValorTotal { get; set; }
         public EnderecoModel Endereco { get; set; }
-        public Guid VendaProdutosId { get; set; }
+        public List<ProdutosVendidos> ProdutosVendidos { get; set; }
         public DadosPessoaisModel DadosPessoais { get; set; }
         public DadosPagamentoModel DadosPagamento { get; set; }
 
@@ -19,7 +19,7 @@ namespace tcc.Models
             Status = string.Empty;
             ValorTotal = 0;
             Endereco = new EnderecoModel();
-            VendaProdutosId = new Guid();
+            ProdutosVendidos = new List<ProdutosVendidos>();
             DadosPessoais = new DadosPessoaisModel();
             DadosPagamento = new DadosPagamentoModel();
         }

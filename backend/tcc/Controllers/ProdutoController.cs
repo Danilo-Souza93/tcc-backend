@@ -17,7 +17,7 @@ namespace tcc.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateProducts(List<ProdutoModel> listaProdutos)
+        public IActionResult CreateProducts([FromBody]List<ProdutoModel> listaProdutos)
         {
             try
             {
@@ -27,6 +27,33 @@ namespace tcc.Controllers
             }
             catch (Exception ex)
             {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetProductList()
+        {
+            try
+            {
+                return  Ok(_serviceWrapper.ProdutoService.GetProductList());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex); 
+            }
+        }
+
+        [HttpPut]
+        public IActionResult UpdateProduct([FromBody] ProdutoModel product)
+        {
+            try
+            {
+                return Ok(_serviceWrapper.ProdutoService.UpdateProduto(product));
+            }
+            catch (Exception ex)
+            {
+
                 return BadRequest(ex);
             }
         }

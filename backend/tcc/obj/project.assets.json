@@ -1897,24 +1897,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Estevam\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Danilo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Estevam\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
+      "projectUniqueName": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj",
       "projectName": "tcc",
-      "projectPath": "C:\\Users\\Estevam\\source\\repos\\tcc-backend\\backend\\tcc\\tcc.csproj",
-      "packagesPath": "C:\\Users\\Estevam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Estevam\\source\\repos\\tcc-backend\\backend\\tcc\\obj\\",
+      "projectPath": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\tcc.csproj",
+      "packagesPath": "C:\\Users\\Danilo\\.nuget\\packages\\",
+      "outputPath": "C:\\WorkTSF\\tcc-backend\\backend\\tcc\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Estevam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Danilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1934,11 +1929,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2013,7 +2003,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

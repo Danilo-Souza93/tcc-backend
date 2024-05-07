@@ -25,12 +25,6 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         builder.Property(v => v.ValorTotal)
                .HasColumnName("valor_total")
                .IsRequired();
-        
-        // Configura a relação 1:1
-        //builder.HasMany(v => v.VendaProdutos)
-        //    .WithOne()
-        //    .HasForeignKey<VendaProdutosEntityModel>(e => e.VendaProdutosId)
-        //    .IsRequired();
 
         // Configura a relação com EnderecoModel
         builder.OwnsOne(v => v.Endereco, endereco =>
