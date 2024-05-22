@@ -1,4 +1,4 @@
-﻿using tcc.Repositorys;
+﻿using tcc.Repositories;
 
 namespace tcc.Services
 {

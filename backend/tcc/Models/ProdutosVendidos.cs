@@ -2,13 +2,13 @@
 {
     public class ProdutosVendidos
     {
-        public Guid ProdutoId { get; set; }
+        public int ProdutoId { get; set; }
         public int Quantidade {  get; set; }
 
-        ProdutosVendidos()
+        public ProdutosVendidos(int produtoId, int quantidade)
         {
-            ProdutoId = Guid.NewGuid();
-            Quantidade = 0;
+            ProdutoId = produtoId;
+            Quantidade = quantidade;
         }
     }
 }

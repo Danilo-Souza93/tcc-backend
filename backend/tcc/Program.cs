@@ -3,8 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using tcc.Context;
-using tcc.Repositorys;
+using tcc.Repositories;
 using tcc.Services;
+using tcc.Strategies;
 using tcc.Utilities;
 
 namespace MyTcc

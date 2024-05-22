@@ -32,7 +32,7 @@ namespace tcc.EntityModels
         [Required]
         [Column("valor")]
         [Range(0, double.MaxValue, ErrorMessage ="O valor do produto precisa ser maior que 0")]
-        public decimal Valor { get; set; }
+        public float Valor { get; set; }
 
         [Required]
         [Column("dt_lote")]

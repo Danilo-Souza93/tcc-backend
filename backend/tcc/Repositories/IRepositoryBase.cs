@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace tcc.Repositorys
+namespace tcc.Repositories
 {
     public interface IRepositoryBase<T>
     {

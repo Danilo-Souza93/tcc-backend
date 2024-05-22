@@ -4,8 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 namespace tcc.Models
 {
     public class VendaModel
-    {
-        public Guid Id { get; set; }
+    {   
         public string Status { get; set; }
         public float ValorTotal { get; set; }
         public EnderecoModel Endereco { get; set; }
@@ -15,7 +14,6 @@ namespace tcc.Models
 
         public VendaModel() 
         {
-            Id = new Guid();
             Status = string.Empty;
             ValorTotal = 0;
             Endereco = new EnderecoModel();

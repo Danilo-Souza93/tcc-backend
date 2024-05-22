@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using tcc.EntityModels;
 using tcc.Models;
+using tcc.Strategies;
 
 namespace tcc.Utilities
 {
@@ -10,6 +11,7 @@ namespace tcc.Utilities
         { 
             CreateMap<ProdutoModel, ProdutoEntityModel>().ReverseMap();
             CreateMap<VendaModel, VendaEntityModel>().ReverseMap();
+            
         }
     }
 }
