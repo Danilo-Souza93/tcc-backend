@@ -15,11 +15,35 @@ namespace tcc.Controllers
             _serviceWrapper = serviceWrapper;
         }
 
+        [Route("venda")]
         [HttpPost]
         public IActionResult CriarVenda([FromBody]VendaModel venda)
         {
-            _serviceWrapper.VendaService.CriarVenda(venda);
-            return Ok();
+            try
+            {
+                _serviceWrapper.VendaService.CriarVenda(venda);
+                return Ok("venda criada");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [Route("{vendaId}")]
+        [HttpGet]
+        public IActionResult GetVenda(Guid vendaId)
+        {
+            try
+            {
+                (VendaModel venda, List<ProdutoModel> produtosList) detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);   
+
+                return Ok(new { detalheVenda.venda, detalheVenda.produtosList });
+
+            }catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }

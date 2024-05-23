@@ -23,20 +23,11 @@ namespace tcc.Services.VendasService
 
         public void CriarVenda(VendaModel venda)
         {
-            List<VendaProdutosEntityModel> vendaProdList = new List<VendaProdutosEntityModel>();
             var produtos = _strategy.ValidacaoVenda(venda);
-
-            //remover itens do estoque.
-            foreach (var prod in produtos) 
-            {
-                _repository.ProdutoRepository.Update(prod);
-                _repository.Save();
-            }
 
             VendaEntityModel vendaEntity = _mapper.Map<VendaEntityModel>(venda);
             vendaEntity.Id = Guid.NewGuid();
             _repository.VendaRepository.Create(vendaEntity);
-            _repository.Save();
 
             foreach (var prod in venda.ProdutosVendidos) 
             {
@@ -50,9 +41,37 @@ namespace tcc.Services.VendasService
                     vendaProd.Quantidade = prod.Quantidade;
 
                     _repository.VendaProdutoRepository.Create(vendaProd);
-                    _repository.Save();
                 }
             }
+
+            //remover itens do estoque.
+            foreach (var prod in produtos)
+            {
+                _repository.ProdutoRepository.Update(prod);             
+            }
+
+            _repository.Save();
+        }
+
+        public (VendaModel, List<ProdutoModel>) GetVenda(Guid vendaId)
+        { 
+            List<ProdutoModel> produtosVendidosList = new List<ProdutoModel>();
+            
+            VendaEntityModel vendaDb = _repository.VendaRepository.FindByCondition(x => x.Id == vendaId).FirstOrDefault();
+            VendaModel venda = _mapper.Map<VendaModel>(vendaDb);
+
+            List<VendaProdutosEntityModel> vendaProdutoList = _repository.VendaProdutoRepository.FindByCondition(x => x.VendaId == vendaId).ToList();
+            
+            if(vendaProdutoList != null)
+            {
+                foreach(var produto in vendaProdutoList) 
+                { 
+                   ProdutoEntityModel produtoDb = _repository.ProdutoRepository.FindByCondition(x => x.Id == produto.ProdutoId).FirstOrDefault();
+                   produtosVendidosList.Add(_mapper.Map<ProdutoModel>(produtoDb));
+                }
+            }
+
+            return (venda, produtosVendidosList);
         }
     }
 }
