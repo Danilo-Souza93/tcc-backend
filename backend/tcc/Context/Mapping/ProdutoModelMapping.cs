@@ -12,9 +12,14 @@ namespace tcc.Context.Mapping
             builder.ToTable("produtos");
 
             builder.HasKey(x => x.Id);
-            
-            builder.Property(x => x.Nome).
-                HasColumnName("nome")
+
+            builder.Property(x => x.Uuid)
+                .HasDefaultValueSql("gen_random_uuid()")
+                .ValueGeneratedOnAdd();
+
+
+            builder.Property(x => x.Nome)
+                .HasColumnName("nome")
                 .IsRequired();
 
             builder.Property(x => x.Valor)
@@ -24,7 +29,6 @@ namespace tcc.Context.Mapping
             builder.Property(x => x.dt_lote)
                 .HasColumnName("dt_lote").
                 IsRequired();
-
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿using tcc.EntityModels;
 
-namespace tcc.Repositorys.ProdutoRepository
+namespace tcc.Repositories.ProdutoRepository
 {
     public interface IProdutoRepository : IRepositoryBase<ProdutoEntityModel>
     {

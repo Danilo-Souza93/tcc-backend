@@ -1,0 +1,9 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/tcc-backend/v17
+/backend/.vs/backend/FileContentIndex
+/backend/.vs/backend/v17/TestStore/0
+/backend/.vs/backend/v17/.suo
+/backend/.vs/backend/v17/DocumentLayout.json

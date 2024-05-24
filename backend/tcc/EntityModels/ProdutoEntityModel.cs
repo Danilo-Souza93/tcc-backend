@@ -11,6 +11,10 @@ namespace tcc.EntityModels
         public int Id { get; set; }
 
         [Required]
+        [Column("produto_guid")]
+        public Guid Uuid { get; set; }
+
+        [Required]
         [Column("produto_name")]
         [
             MaxLength(100, ErrorMessage = "O produto pode ter no maximo 100 caracteres"), 
@@ -28,10 +32,12 @@ namespace tcc.EntityModels
         [Required]
         [Column("valor")]
         [Range(0, double.MaxValue, ErrorMessage ="O valor do produto precisa ser maior que 0")]
-        public decimal Valor { get; set; }
+        public float Valor { get; set; }
 
         [Required]
         [Column("dt_lote")]
         public string dt_lote { get; set; }
+
+        public List<VendaProdutosEntityModel> ProdutoVendas { get; set; }
     }
 }

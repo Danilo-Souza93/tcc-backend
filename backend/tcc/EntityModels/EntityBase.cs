@@ -17,9 +17,12 @@ namespace tcc.EntityModels
 
         public void Generate()
         {
-            Id = Guid.NewGuid();
-            DateCreation = DateTime.Now;
-            DateModification = DateTime.Now;
+            if(Id == Guid.Empty)
+            {  
+                Id = Guid.NewGuid(); 
+            }
+            DateCreation = DateTime.Now.Date;
+            DateModification = DateTime.Now.Date;
         }
     }
 }

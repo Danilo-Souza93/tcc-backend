@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using tcc.Context;
 
-namespace tcc.Repositorys
+namespace tcc.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {

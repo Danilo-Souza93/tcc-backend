@@ -10,7 +10,7 @@ namespace tcc.EntityModels
     {
         [Required]
         [Column("venda_id")]
-        public int Id { get; set; }
+        public Guid VendaId { get; set; }
 
         [Required]
         [Column("status")]
@@ -23,11 +23,11 @@ namespace tcc.EntityModels
 
         [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Deve conter pelo menos um produto")]
-        public virtual List<ProdutoModel> Produto { get; set; } // Propriedade de tipo complexo
+        public List<VendaProdutosEntityModel> VendaProdutos { get; set; } 
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Deve conter um unico endereço")]
-        public virtual EnderecoModel Endereco { get; set; } 
+        public virtual EnderecoModel Endereco { get; set; } // Propriedade de tipo complexo
 
         [Required]
         [Range(0.01, int.MaxValue, ErrorMessage = "Deve conter pelo menos um dado para contato")]
