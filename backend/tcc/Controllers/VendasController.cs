@@ -21,12 +21,13 @@ namespace tcc.Controllers
         {
             try
             {
-                _serviceWrapper.VendaService.CriarVenda(venda);
+                Guid vendaId = _serviceWrapper.VendaService.CriarVenda(venda);
+
                 return Ok("venda criada");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
             }
         }
 
@@ -39,10 +40,25 @@ namespace tcc.Controllers
                 (VendaModel venda, List<ProdutoModel> produtosList) detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);   
 
                 return Ok(new { detalheVenda.venda, detalheVenda.produtosList });
-
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { StatusCodes.Status404NotFound, ex.Message });
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteVenda([FromBody] Guid vendaId)
+        {
+            try
+            {
+                _serviceWrapper.VendaService.DeleteVenda(vendaId);
+
+                return Ok("Venda Deletada");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
             }
         }
     }

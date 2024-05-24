@@ -5,6 +5,7 @@ namespace tcc.Models
 {
     public class VendaModel
     {   
+        public Guid? VendaId { get; set; }
         public string Status { get; set; }
         public float ValorTotal { get; set; }
         public EnderecoModel Endereco { get; set; }

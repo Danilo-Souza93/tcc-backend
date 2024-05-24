@@ -28,7 +28,7 @@ namespace tcc.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
             }
         }
 
@@ -37,11 +37,11 @@ namespace tcc.Controllers
         {
             try
             {
-                return  Ok(_serviceWrapper.ProdutoService.GetProductList());
+                return Ok(_serviceWrapper.ProdutoService.GetProductList());
             }
             catch (Exception ex)
             {
-                return BadRequest(ex); 
+                return BadRequest(new { StatusCodes.Status404NotFound, ex.Message }); 
             }
         }
 
@@ -55,7 +55,22 @@ namespace tcc.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest(ex);
+                return BadRequest(new {StatusCodes.Status500InternalServerError, ex.Message});
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteProduct(int id)
+        {
+            try
+            {
+                _serviceWrapper.ProdutoService.DeleteProduto(id);
+                
+                return Ok("Produto Deletado");
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
             }
         }
     }

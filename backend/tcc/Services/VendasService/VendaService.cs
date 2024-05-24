@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Data;
 using tcc.EntityModels;
 using tcc.Models;
 using tcc.Repositories;
@@ -21,12 +22,13 @@ namespace tcc.Services.VendasService
             _strategy = strategy;
         }
 
-        public void CriarVenda(VendaModel venda)
+        public Guid CriarVenda(VendaModel venda)
         {
             var produtos = _strategy.ValidacaoVenda(venda);
-
+            
             VendaEntityModel vendaEntity = _mapper.Map<VendaEntityModel>(venda);
             vendaEntity.Id = Guid.NewGuid();
+            vendaEntity.StatusPagamento = "Aprovado";
             _repository.VendaRepository.Create(vendaEntity);
 
             foreach (var prod in venda.ProdutosVendidos) 
@@ -51,6 +53,8 @@ namespace tcc.Services.VendasService
             }
 
             _repository.Save();
+
+            return vendaEntity.Id;
         }
 
         public (VendaModel, List<ProdutoModel>) GetVenda(Guid vendaId)
@@ -58,20 +62,57 @@ namespace tcc.Services.VendasService
             List<ProdutoModel> produtosVendidosList = new List<ProdutoModel>();
             
             VendaEntityModel vendaDb = _repository.VendaRepository.FindByCondition(x => x.Id == vendaId).FirstOrDefault();
+            if (vendaDb == null)
+            {
+                throw new Exception("Venda não encontrada");
+            }
+
             VendaModel venda = _mapper.Map<VendaModel>(vendaDb);
 
             List<VendaProdutosEntityModel> vendaProdutoList = _repository.VendaProdutoRepository.FindByCondition(x => x.VendaId == vendaId).ToList();
-            
-            if(vendaProdutoList != null)
+
+            if (vendaProdutoList == null)
             {
-                foreach(var produto in vendaProdutoList) 
-                { 
-                   ProdutoEntityModel produtoDb = _repository.ProdutoRepository.FindByCondition(x => x.Id == produto.ProdutoId).FirstOrDefault();
-                   produtosVendidosList.Add(_mapper.Map<ProdutoModel>(produtoDb));
-                }
+                throw new Exception("Relação venda produto não encontrada");
             }
 
+            foreach(var produto in vendaProdutoList) 
+            { 
+                ProdutoEntityModel produtoDb = _repository.ProdutoRepository.FindByCondition(x => x.Id == produto.ProdutoId).FirstOrDefault();
+                if(produtoDb == null)
+                {
+                    throw new Exception("Produto não encontrado");
+                }
+                
+                produtosVendidosList.Add(_mapper.Map<ProdutoModel>(produtoDb));
+            }
+            
+
             return (venda, produtosVendidosList);
+        }
+
+        public void DeleteVenda(Guid vendaId)
+        {
+
+            VendaEntityModel vendaDb = _repository.VendaRepository.FindByCondition(x => x.Id == vendaId).FirstOrDefault();
+            if (vendaDb == null)
+            {
+                throw new Exception("Venda não encontrada");
+            }
+
+            List<VendaProdutosEntityModel> vendaProdutoListDb = _repository.VendaProdutoRepository.FindByCondition(x => x.VendaId == vendaId).ToList();
+            if(vendaProdutoListDb == null)
+            {
+                throw new Exception("Relação venda produto não encontrada");
+            }
+
+            foreach (var item in vendaProdutoListDb)
+            {
+                _repository.VendaProdutoRepository.Delete(item);
+            }
+
+            _repository.VendaRepository.Delete(vendaDb);
+            _repository.Save();
         }
     }
 }
