@@ -40,7 +40,7 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         builder.OwnsOne(v => v.DadosPessoais, dadosPessoais =>
         {
             dadosPessoais.Property(e => e.Cpf)
-                .HasMaxLength(11)
+                .HasMaxLength(14)
                 .IsRequired();
         });
 

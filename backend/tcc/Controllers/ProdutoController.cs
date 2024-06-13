@@ -16,7 +16,6 @@ namespace tcc.Controllers
             _serviceWrapper = serviceWrapper;
         }
 
-        [Route("produto")]
         [HttpPost]
         public IActionResult CreateProducts([FromBody]List<ProdutoModel> listaProdutos)
         {

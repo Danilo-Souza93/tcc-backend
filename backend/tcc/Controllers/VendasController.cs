@@ -15,19 +15,30 @@ namespace tcc.Controllers
             _serviceWrapper = serviceWrapper;
         }
 
-        [Route("venda")]
         [HttpPost]
         public IActionResult CriarVenda([FromBody]VendaModel venda)
         {
             try
             {
                 Guid vendaId = _serviceWrapper.VendaService.CriarVenda(venda);
+                var response = new
+                {
+                    mensagem = "venda criada",
+                    StatusCode = 200,
+                    vendaId = vendaId,
+                };                 
 
-                return Ok("venda criada");
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
+                var response = new
+                 {
+                    mensagem = "erro ao criar venda",
+                    StatusCode = 500,
+                    error = ex.Message,
+                 };
+                return BadRequest(response);
             }
         }
 
@@ -37,13 +48,26 @@ namespace tcc.Controllers
         {
             try
             {
-                (VendaModel venda, List<ProdutoModel> produtosList) detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);   
+                (VendaModel venda, List<ProdutoModel> produtosList) detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);
 
-                return Ok(new { detalheVenda.venda, detalheVenda.produtosList });
+                var response = new
+                {
+                    mensagem = "venda encontrada",
+                    StatusCode = 200,
+                    venda = detalheVenda,
+                };
+
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(new { StatusCodes.Status404NotFound, ex.Message });
+                var response = new
+                {
+                    mensagem = "venda não encontrada",
+                    StatusCode = 500,
+                    error = ex.Message,
+                };
+                return BadRequest(response);
             }
         }
 
@@ -53,12 +77,22 @@ namespace tcc.Controllers
             try
             {
                 _serviceWrapper.VendaService.DeleteVenda(vendaId);
-
-                return Ok("Venda Deletada");
+                var response = new
+                {
+                    mensagem = "venda excluida",
+                    StatusCode = 200,
+                };
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
+                var response = new
+                {
+                    mensagem = "erro ao deletar venda",
+                    StatusCode = 500,
+                    error = ex.Message,
+                };
+                return BadRequest(response);
             }
         }
     }

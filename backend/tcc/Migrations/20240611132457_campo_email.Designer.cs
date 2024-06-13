@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using tcc.Context;
@@ -11,9 +12,11 @@ using tcc.Context;
 namespace tcc.Migrations
 {
     [DbContext(typeof(APIDbContext))]
-    partial class APIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240611132457_campo_email")]
+    partial class campo_email
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -161,8 +164,8 @@ namespace tcc.Migrations
 
                             b1.Property<string>("Cpf")
                                 .IsRequired()
-                                .HasMaxLength(14)
-                                .HasColumnType("character varying(14)")
+                                .HasMaxLength(11)
+                                .HasColumnType("character varying(11)")
                                 .HasColumnName("pessoal_cpf");
 
                             b1.Property<string>("Email")
