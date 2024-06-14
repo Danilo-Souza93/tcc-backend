@@ -9,5 +9,6 @@ namespace tcc.Services.ProdutoService
         List<ProdutoModel> GetProductList();
         List<ProdutoEntityModel> GetProductByProductSaledId(List<ProdutosVendidos> produtosVendidos);
         ProdutoModel UpdateProduto(ProdutoModel produto);
+        void DeleteProduto(int id);
     }
 }

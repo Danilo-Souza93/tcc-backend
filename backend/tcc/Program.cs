@@ -51,7 +51,8 @@ namespace MyTcc
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   policy =>
                                   {
-                                      policy.AllowAnyOrigin()
+                                      policy.WithOrigins("http://localhost:4200")
+                                            .AllowAnyOrigin()
                                             .AllowAnyHeader()
                                             .AllowAnyMethod();
                                   });

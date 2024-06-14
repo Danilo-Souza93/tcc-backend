@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using tcc.Models;
 using tcc.Services;
 
@@ -15,18 +16,30 @@ namespace tcc.Controllers
             _serviceWrapper = serviceWrapper;
         }
 
-        [Route("venda")]
         [HttpPost]
         public IActionResult CriarVenda([FromBody]VendaModel venda)
         {
             try
             {
-                _serviceWrapper.VendaService.CriarVenda(venda);
-                return Ok("venda criada");
+                Guid vendaId = _serviceWrapper.VendaService.CriarVenda(venda);
+                var response = new
+                {
+                    mensagem = "venda criada",
+                    StatusCode = 200,
+                    vendaId = vendaId,
+                };                 
+
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                var response = new
+                 {
+                    mensagem = "erro ao criar venda",
+                    StatusCode = 500,
+                    error = ex.Message,
+                 };
+                return BadRequest(response);
             }
         }
 
@@ -36,13 +49,64 @@ namespace tcc.Controllers
         {
             try
             {
-                (VendaModel venda, List<ProdutoModel> produtosList) detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);   
+                DetalheVendaModel detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);
 
-                return Ok(new { detalheVenda.venda, detalheVenda.produtosList });
-
-            }catch (Exception ex)
+                return Ok(detalheVenda);
+            }
+            catch (Exception ex)
             {
-                return BadRequest(ex);
+                var response = new
+                {
+                    mensagem = "venda não encontrada",
+                    StatusCode = 500,
+                    error = ex.Message,
+                };
+                return BadRequest(response);
+            }
+        }
+
+        [Route("{vendaId}")]
+        [HttpDelete]
+        public IActionResult DeleteVenda(Guid vendaId)
+        {
+            try
+            {
+                _serviceWrapper.VendaService.DeleteVenda(vendaId);
+                var response = new
+                {
+                    mensagem = "venda excluida",
+                    StatusCode = 200,
+                };
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                var response = new
+                {
+                    mensagem = "erro ao deletar venda",
+                    StatusCode = 500,
+                    error = ex.Message,
+                };
+                return BadRequest(response);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult UpdateStatusVenda(VendaModel venda)
+        {
+            try
+            {
+               return Ok( _serviceWrapper.VendaService.UpdateVenda(venda));
+            }
+            catch (Exception ex)
+            {
+                var response = new
+                {
+                    message = "erro ao atualizar venda",
+                    statusCode = 200,
+                    error = ex.Message,
+                };
+                return BadRequest(response);
             }
         }
     }

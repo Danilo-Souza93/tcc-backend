@@ -4,7 +4,9 @@ namespace tcc.Services.VendasService
 {
     public interface IVendaService
     {
-        void CriarVenda(VendaModel vanda);
-        (VendaModel, List<ProdutoModel>) GetVenda(Guid vanda);
+        Guid CriarVenda(VendaModel vanda);
+        DetalheVendaModel GetVenda(Guid vanda);
+        void DeleteVenda(Guid vendaId);
+        Guid UpdateVenda(VendaModel vanda);
     }
 }

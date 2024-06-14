@@ -40,24 +40,12 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         builder.OwnsOne(v => v.DadosPessoais, dadosPessoais =>
         {
             dadosPessoais.Property(e => e.Cpf)
-                .HasMaxLength(11)
+                .HasMaxLength(14)
                 .IsRequired();
         });
 
-        // Configura a relação com DadosPagamentoModel
-        builder.OwnsOne(v => v.DadosPagamento, dadosPagamento =>
-        {
-            dadosPagamento.OwnsOne(j => j.Cartao, cartao =>
-            {
-                cartao.Property(i => i.NumeroCartao)
-                    .IsRequired();
-
-                cartao.Property(i => i.NomeCartao)
-                    .IsRequired();
-
-                cartao.Property(i => i.Tipo)
-                    .IsRequired();
-            });
-        });
+        builder.Property(v => v.StatusPagamento)
+            .HasColumnName("status_pagamento")
+            .IsRequired();
     }
 }

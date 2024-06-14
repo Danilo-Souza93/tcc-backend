@@ -18,28 +18,40 @@ namespace tcc.Strategies
         //validar pagamento
         public List<ProdutoEntityModel> ValidacaoVenda(VendaModel venda) 
         {
-        // regras:
-        // produtos comprados nao pode ser maior do que o estoque
+            // regras:
+            // produtos comprados nao pode ser maior do que o estoque
             var produtos = _produtoService.GetProductByProductSaledId(venda.ProdutosVendidos);
-            float valorTotal = 0;
-
-            if (produtos != null)
+            if (produtos == null)
             {
-                foreach(var item in venda.ProdutosVendidos)
-                {
-                    var prod = produtos.FirstOrDefault(x => x.Id == item.ProdutoId);
-                    if (prod != null)
-                    {
-                        valorTotal += prod.Valor * item.Quantidade;
+                throw new Exception("Produto não encontrado");
+            }
 
-                        //validar que o item precisa ser menor que a quantidade em estoque
-                        prod.QuantidadeEstoque -= item.Quantidade;
-                    }
-                }       
+            float valorTotal = 0;
+            
+            foreach(var item in venda.ProdutosVendidos)
+            {
+                var prod = produtos.FirstOrDefault(x => x.Id == item.ProdutoId);
+                if(prod.QuantidadeEstoque < item.Quantidade)
+                {
+                    throw new Exception("Quantidade de produto insuficiente");
+                }
+
+                if (prod != null)
+                {
+                    valorTotal += prod.Valor * item.Quantidade;
+
+                    //validar que o item precisa ser menor que a quantidade em estoque
+                    prod.QuantidadeEstoque -= item.Quantidade;
+                }
+            }       
+            
+            if(valorTotal != venda.ValorTotal)
+            {
+                throw new Exception("Valor pago difrente do valor total da compra");
             }
 
             if (venda.DadosPagamento != null) 
-            { 
+            {
                 //validar pagamento        
             }
 

@@ -13,12 +13,15 @@ namespace tcc.Models
         public string Nome { get; set; }
         [Column("pessoal_sobrenome")]
         public string Sobrenome { get; set; }
-        
+
+        [Column("email")]
+        public string Email { get; set; }
 
         public DadosPessoaisModel() 
         { 
             Nome = string.Empty;
             Sobrenome = string.Empty;
+            Email = string.Empty;
             Cpf = string.Empty;
         }
     }

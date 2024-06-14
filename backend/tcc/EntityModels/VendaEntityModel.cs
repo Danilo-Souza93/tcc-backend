@@ -34,7 +34,7 @@ namespace tcc.EntityModels
         public virtual DadosPessoaisModel DadosPessoais { get; set; }
 
         [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Deve conter uma forma de pagamento")]
-        public virtual DadosPagamentoModel DadosPagamento { get; set; }
+        [MaxLength(100)]
+        public string StatusPagamento {  get; set; }
     }
 }
