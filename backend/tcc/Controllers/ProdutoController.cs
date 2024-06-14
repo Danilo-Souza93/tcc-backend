@@ -22,12 +22,24 @@ namespace tcc.Controllers
             try
             {
                 _serviceWrapper.ProdutoService.CriarProdutos(listaProdutos);
+                var response = new
+                {
+                    message = "Produtos Cadastrados",
+                    statusCode = 200,
+                };
 
-                return Ok("Produtos Cadastrados");
+                return Ok(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
+                var response = new
+                {
+                    message = "Erro ao cadastrar produto",
+                    statusCode = 500,
+                    error = ex.Message
+                };
+
+                return BadRequest(response);
             }
         }
 
@@ -40,7 +52,14 @@ namespace tcc.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { StatusCodes.Status404NotFound, ex.Message }); 
+                var response = new
+                {
+                    message = "Erro ao buscar produtos",
+                    statusCode = 500,
+                    error = ex.Message
+                };
+
+                return BadRequest(response); 
             }
         }
 
@@ -53,23 +72,42 @@ namespace tcc.Controllers
             }
             catch (Exception ex)
             {
+                var response = new
+                {
+                    message = "Erro ao atualizar produtos",
+                    statusCode = 500,
+                    error = ex.Message
+                };
 
-                return BadRequest(new {StatusCodes.Status500InternalServerError, ex.Message});
+                return BadRequest(response);
             }
         }
 
+        [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteProduct(int id)
         {
             try
             {
                 _serviceWrapper.ProdutoService.DeleteProduto(id);
-                
-                return Ok("Produto Deletado");
+                var response = new
+                {
+                    message = "Produto Deletado",
+                    statusCode = 200,
+                };
+
+                return Ok(response);
             }
             catch(Exception ex)
             {
-                return BadRequest(new { StatusCodes.Status500InternalServerError, ex.Message });
+                var response = new
+                {
+                    message = "Error ao deletar produto",
+                    statusCode = 500,
+                    error = ex.Message
+                };
+
+                return BadRequest(response);
             }
         }
     }

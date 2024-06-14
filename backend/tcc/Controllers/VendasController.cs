@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using tcc.Models;
 using tcc.Services;
 
@@ -48,16 +49,9 @@ namespace tcc.Controllers
         {
             try
             {
-                (VendaModel venda, List<ProdutoModel> produtosList) detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);
+                DetalheVendaModel detalheVenda = _serviceWrapper.VendaService.GetVenda(vendaId);
 
-                var response = new
-                {
-                    mensagem = "venda encontrada",
-                    StatusCode = 200,
-                    venda = detalheVenda,
-                };
-
-                return Ok(response);
+                return Ok(detalheVenda);
             }
             catch (Exception ex)
             {
@@ -71,8 +65,9 @@ namespace tcc.Controllers
             }
         }
 
+        [Route("{vendaId}")]
         [HttpDelete]
-        public IActionResult DeleteVenda([FromBody] Guid vendaId)
+        public IActionResult DeleteVenda(Guid vendaId)
         {
             try
             {
@@ -90,6 +85,25 @@ namespace tcc.Controllers
                 {
                     mensagem = "erro ao deletar venda",
                     StatusCode = 500,
+                    error = ex.Message,
+                };
+                return BadRequest(response);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult UpdateStatusVenda(VendaModel venda)
+        {
+            try
+            {
+               return Ok( _serviceWrapper.VendaService.UpdateVenda(venda));
+            }
+            catch (Exception ex)
+            {
+                var response = new
+                {
+                    message = "erro ao atualizar venda",
+                    statusCode = 200,
                     error = ex.Message,
                 };
                 return BadRequest(response);

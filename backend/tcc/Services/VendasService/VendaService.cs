@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System.Data;
 using tcc.EntityModels;
 using tcc.Models;
@@ -57,9 +58,9 @@ namespace tcc.Services.VendasService
             return vendaEntity.Id;
         }
 
-        public (VendaModel, List<ProdutoModel>) GetVenda(Guid vendaId)
-        { 
-            List<ProdutoModel> produtosVendidosList = new List<ProdutoModel>();
+        public DetalheVendaModel GetVenda(Guid vendaId)
+        {
+            DetalheVendaModel detalheVenda = new DetalheVendaModel();
             
             VendaEntityModel vendaDb = _repository.VendaRepository.FindByCondition(x => x.Id == vendaId).FirstOrDefault();
             if (vendaDb == null)
@@ -67,13 +68,18 @@ namespace tcc.Services.VendasService
                 throw new Exception("Venda não encontrada");
             }
 
-            VendaModel venda = _mapper.Map<VendaModel>(vendaDb);
+            detalheVenda.Venda = _mapper.Map<VendaModel>(vendaDb);
 
             List<VendaProdutosEntityModel> vendaProdutoList = _repository.VendaProdutoRepository.FindByCondition(x => x.VendaId == vendaId).ToList();
 
             if (vendaProdutoList == null)
             {
                 throw new Exception("Relação venda produto não encontrada");
+            }
+
+            foreach(var prodVenda in vendaProdutoList)
+            {
+                detalheVenda.Venda.ProdutosVendidos.Add(new ProdutosVendidos(prodVenda.ProdutoId, prodVenda.Quantidade));
             }
 
             foreach(var produto in vendaProdutoList) 
@@ -83,12 +89,11 @@ namespace tcc.Services.VendasService
                 {
                     throw new Exception("Produto não encontrado");
                 }
-                
-                produtosVendidosList.Add(_mapper.Map<ProdutoModel>(produtoDb));
-            }
-            
 
-            return (venda, produtosVendidosList);
+                detalheVenda.ProdutosList.Add(_mapper.Map<ProdutoModel>(produtoDb));
+            }
+
+            return detalheVenda;
         }
 
         public void DeleteVenda(Guid vendaId)
@@ -113,6 +118,16 @@ namespace tcc.Services.VendasService
 
             _repository.VendaRepository.Delete(vendaDb);
             _repository.Save();
+        }
+
+        public Guid UpdateVenda(VendaModel venda)
+        {
+            VendaEntityModel vendaEntity = _mapper.Map<VendaEntityModel>(venda);
+            _repository.VendaRepository.Update(vendaEntity);
+
+            Guid vendaId = _repository.VendaRepository.FindByCondition(x => x.Id == venda.VendaId).FirstOrDefault().Id;
+
+            return vendaId;
         }
     }
 }
