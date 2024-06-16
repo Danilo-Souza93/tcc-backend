@@ -96,7 +96,7 @@ namespace tcc.Controllers
         {
             try
             {
-               return Ok( _serviceWrapper.VendaService.UpdateVenda(venda));
+               return Ok( _serviceWrapper.VendaService.UpdateVenda(venda).Id);
             }
             catch (Exception ex)
             {

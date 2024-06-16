@@ -11,6 +11,8 @@ public class VendaModelMapping : IEntityTypeConfiguration<VendaEntityModel>
         // Define o nome da tabela
         builder.ToTable("vendas");
 
+        //builder.HasKey(v => v.VendaId);
+
         // Configura a chave primária
         builder.Property(v => v.VendaId)
             .HasDefaultValueSql("gen_random_uuid()")
