@@ -105,7 +105,7 @@ namespace tcc.Services.VendasService
                 throw new Exception("Venda não encontrada");
             }
 
-            List<VendaProdutosEntityModel> vendaProdutoListDb = _repository.VendaProdutoRepository.FindByCondition(x => x.VendaId == vendaId).ToList();
+            List<VendaProdutosEntityModel> vendaProdutoListDb = _repository.VendaProdutoRepository.FindByCondition(x => x.Id == vendaId).ToList();
             if(vendaProdutoListDb == null)
             {
                 throw new Exception("Relação venda produto não encontrada");
@@ -120,14 +120,23 @@ namespace tcc.Services.VendasService
             _repository.Save();
         }
 
-        public Guid UpdateVenda(VendaModel venda)
+        public VendaEntityModel UpdateVenda(VendaModel venda)
         {
-            VendaEntityModel vendaEntity = _mapper.Map<VendaEntityModel>(venda);
-            _repository.VendaRepository.Update(vendaEntity);
+            Guid id = venda.Id.Value;
+            VendaEntityModel vendaDb = _repository.VendaRepository.FindByCondition(x => x.Id == id).FirstOrDefault();
+            if (vendaDb == null)
+            {
+                throw new Exception("Falha ao atualizar venda");
+            }
 
-            Guid vendaId = _repository.VendaRepository.FindByCondition(x => x.Id == venda.VendaId).FirstOrDefault().Id;
+            vendaDb.Status = venda.Status;
 
-            return vendaId;
+            _repository.VendaRepository.Update(vendaDb);
+            _repository.Save();
+
+            VendaEntityModel vendaDbUpdated = _repository.VendaRepository.FindByCondition(x => x.Id == venda.Id).FirstOrDefault();
+
+            return vendaDbUpdated;
         }
     }
 }

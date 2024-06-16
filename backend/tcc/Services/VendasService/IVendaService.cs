@@ -1,4 +1,5 @@
-﻿using tcc.Models;
+﻿using tcc.EntityModels;
+using tcc.Models;
 
 namespace tcc.Services.VendasService
 {
@@ -7,6 +8,6 @@ namespace tcc.Services.VendasService
         Guid CriarVenda(VendaModel vanda);
         DetalheVendaModel GetVenda(Guid vanda);
         void DeleteVenda(Guid vendaId);
-        Guid UpdateVenda(VendaModel vanda);
+        VendaEntityModel UpdateVenda(VendaModel vanda);
     }
 }
